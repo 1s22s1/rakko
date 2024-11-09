@@ -1,17 +1,17 @@
 function main()
     h = parseint()
 
-    result = 1
+    result = f(h)
 
-    while true
-        if h < 2^result
-            println(2^result - 1)
+    println(result)
+end
 
-            return
-        end
-
-        result += 1
+function f(h)
+    if h == 1
+        return 1
     end
+
+    return 1 + 2f(floor(h / 2) |> Int)
 end
 
 parseint() = readline() |> x -> parse(Int, x)
