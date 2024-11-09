@@ -1,9 +1,7 @@
 function main()
+    n = parsestring()
 
-
-    result = 0
-
-    println(result)
+    println("$(n[2])$(n[3])$(n[1]) $(n[3])$(n[1])$(n[2])")
 end
 
 parseint() = readline() |> x -> parse(Int, x)
