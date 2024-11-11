@@ -15,13 +15,15 @@ function main()
 
     result = 0
 
-    for bit ∈ 0:2^n-1
+    # for bit ∈ 0:2^n-1
+    for bit ∈ 3:3
         satisfy = true
 
         for i ∈ 1:n
             for (k, v) ∈ dict
                 # In case of honest
-                if bit & 1 << (k - 1) ≠ 0
+                if (bit << (k - 1)) & (i-1) ≠ 0
+                    @show bit k
                     for statement ∈ v
                         if (bit >> statement[begin] - 1) & 1 ≠ statement[end]
                             satisfy = false
@@ -39,6 +41,7 @@ function main()
         end
 
         if satisfy
+            @show bit
             result = max(result, count_ones(bit))
         end
     end
