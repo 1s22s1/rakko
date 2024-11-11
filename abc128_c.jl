@@ -1,22 +1,22 @@
 function main()
     n, m = parseints()
-    ksn = [parseints() for _ ∈ 1:m]
+    ks = [parseints() for _ ∈ 1:m]
     pm = parseints()
 
     result = 0
-    for target_switches ∈ bitsearch(collect(1:n))
-        count = 0
 
-        for i ∈ eachindex(ksn)
-            target_ksn = ksn[i][begin+1:end]
-            filter_switches = filter(x -> x ∈ target_switches, target_ksn)
+    for pattern ∈ bitsearch(collect(1:n))
+        on_count = 0
 
-            if length(filter_switches) % 2 == pm[i]
-                count += 1
+        for i ∈ eachindex(ks)
+            switch_pattern = ks[i][begin+1:end]
+
+            if length(pattern ∩ switch_pattern) % 2 == pm[i]
+                on_count += 1
             end
         end
 
-        if count == m
+        if on_count == m
             result += 1
         end
     end
