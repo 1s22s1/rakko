@@ -21,16 +21,16 @@ function main()
         for i ∈ 1:n
             for (k, v) ∈ dict
                 # In case of honest
-                if bit & (1 << (k-1)) ≠ 0
+                if bit & (1 << (k - 1)) ≠ 0
                     for statement ∈ v
-                        if min(bit & (1 << (statement[begin]-1)), 1) ≠ statement[end]
+                        if min(bit & (1 << (statement[begin] - 1)), 1) ≠ statement[end]
                             satisfy = false
                         end
                     end
                     # In case of not honest
                 else
                     for statement ∈ v
-                        if min(bit & (1 << (statement[begin]-1)), 1) == statement[end]
+                        if min(bit & (1 << (statement[begin] - 1)), 1) == statement[end]
                             satisfy = false
                         end
                     end
