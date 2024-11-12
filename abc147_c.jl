@@ -15,8 +15,7 @@ function main()
 
     result = 0
 
-    # for bit ∈ 0:2^n-1
-    for bit ∈ 3:3
+    for bit ∈ 0:2^n-1
         satisfy = true
 
         for i ∈ 1:n
@@ -24,14 +23,14 @@ function main()
                 # In case of honest
                 if bit & (1 << (k-1)) ≠ 0
                     for statement ∈ v
-                        if (bit >> statement[begin] - 1) & 1 ≠ statement[end]
+                        if min(bit & (1 << (statement[begin]-1)), 1) ≠ statement[end]
                             satisfy = false
                         end
                     end
                     # In case of not honest
                 else
                     for statement ∈ v
-                        if (bit >> statement[begin] - 1) & 1 == statement[end]
+                        if min(bit & (1 << (statement[begin]-1)), 1) == statement[end]
                             satisfy = false
                         end
                     end
@@ -40,7 +39,6 @@ function main()
         end
 
         if satisfy
-            @show bit
             result = max(result, count_ones(bit))
         end
     end
