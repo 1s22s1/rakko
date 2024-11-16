@@ -1,16 +1,14 @@
 function main()
     n = parseint()
-    an = parseints()
+    an = sort!(parseints(), rev = true)
 
     result = 0
 
-    while true
-        if all(x -> iseven(x), an)
-            result += 1
-
-            an = an .÷ 2
+    for i ∈ 1:n
+        if isodd(i)
+            result += an[i]
         else
-            break
+            result -= an[i]
         end
     end
 

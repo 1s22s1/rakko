@@ -1,16 +1,16 @@
+using Printf
+
 function main()
-    n = parseint()
-    an = parseints()
+    a = parseint()
+    b = parseint()
+    c = parseint()
+    x = parseint()
 
     result = 0
 
-    while true
-        if all(x -> iseven(x), an)
+    for i ∈ 0:a, j ∈ 0:b, k ∈ 0:c
+        if 500i + 100j + 50k == x
             result += 1
-
-            an = an .÷ 2
-        else
-            break
         end
     end
 

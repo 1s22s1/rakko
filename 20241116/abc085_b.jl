@@ -1,18 +1,10 @@
+using Printf
+
 function main()
     n = parseint()
-    an = parseints()
+    dn = [parseint() for _ ∈ 1:n]
 
-    result = 0
-
-    while true
-        if all(x -> iseven(x), an)
-            result += 1
-
-            an = an .÷ 2
-        else
-            break
-        end
-    end
+    result = dn |> unique |> length
 
     println(result)
 end
