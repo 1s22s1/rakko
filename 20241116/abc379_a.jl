@@ -5,7 +5,10 @@ function main()
 
     dict = tally(n)
 
-    if get(dict, '1', 0) == 1 && get(dict, '2', 0) == 2 && get(dict, '3', 0) == 3 && length(dict) == 3
+    if get(dict, '1', 0) == 1 &&
+       get(dict, '2', 0) == 2 &&
+       get(dict, '3', 0) == 3 &&
+       length(dict) == 3
         println("Yes")
     else
         println("No")

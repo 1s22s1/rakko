@@ -21,7 +21,7 @@ function main()
     end
 
 
-    arr[index[end - 1]][end] += arr[index[end]][end]
+    arr[index[end-1]][end] += arr[index[end]][end]
     arr[index[end]][end] = 0
 
     for elem ∈ arr
