@@ -1,11 +1,15 @@
 using Printf
 
 function main()
+    s = parsestring()
+    arr = split(s, "|")
+    arr = arr[begin+1:end-1]
 
+    for elem ∈ arr
+        print("$(length(elem)) ")
+    end
 
-    result = 0
-
-    println(result)
+    println("")
 end
 
 parseint() = readline() |> x -> parse(Int, x)

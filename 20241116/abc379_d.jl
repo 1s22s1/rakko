@@ -1,11 +1,13 @@
 using Printf
+using Primes
 
 function main()
+    s = parsestring()
+    q = parseint()
+    kq = parseints()
 
+    @show map(x -> factor(x)[2], kq)
 
-    result = 0
-
-    println(result)
 end
 
 parseint() = readline() |> x -> parse(Int, x)
