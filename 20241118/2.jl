@@ -4,21 +4,15 @@ function main()
     n, m = parseints()
     broken = [parseint() for _ ∈ 1:m]
 
-    dp = []
+    dp = [1]
 
     if 1 ∈ broken
         push!(dp, 0)
     else
-        push!(dp, 1)
+        push!(dp, 2)
     end
 
-    if 2 ∈ broken
-        push!(dp, 0)
-    else
-        push!(dp, dp[1]+1)
-    end
-
-    for i ∈ 3:n
+    for i ∈ 2:n
         if i ∈ broken
             push!(dp, 0)
         else
@@ -27,11 +21,12 @@ function main()
             elseif any(x -> x == 0, [dp[i-2], dp[i-1]])
                 push!(dp, max(dp[i-2], dp[i-1]))
             else
-                push!(dp, (dp[i-2]+dp[i-1]) % 1000000007)
+                push!(dp, (dp[i-2] + dp[i-1]) % 1000000007)
             end
         end
     end
 
+    @show dp
     println(dp[end])
 end
 
