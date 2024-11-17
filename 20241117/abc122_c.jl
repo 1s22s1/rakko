@@ -7,7 +7,7 @@ function main()
     sn = [0, 0]
     for i ∈ 1:n-1
         if s[i] == 'A' && s[i+1] == 'C'
-            push!(sn, sn[end]+1)
+            push!(sn, sn[end] + 1)
         else
             push!(sn, sn[end])
         end
