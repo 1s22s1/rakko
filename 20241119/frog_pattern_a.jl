@@ -1,18 +1,14 @@
 using Printf
 
 function main()
-    n, k = parseints()
+    n = parseint()
     hn = parseints()
 
-    dp = fill(typemax(Int), n)
-    dp[begin] = 0
+    dp = [0]
+    push!(dp, abs(hn[2] - hn[1]))
 
-    for i ∈ 1:n-1
-        for j ∈ 1:k
-            if i + j ≤ n
-                dp[i+j] = min(dp[i+j], dp[i] + abs(hn[i+j] - hn[i]))
-            end
-        end
+    for i ∈ 3:n
+        push!(dp, min(dp[i-1] + abs(hn[i] - hn[i-1]), dp[i-2] + abs(hn[i] - hn[i-2])))
     end
 
     result = dp[end]

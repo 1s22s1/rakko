@@ -8,9 +8,9 @@ function main()
     if r == 0
         result = 2q
     elseif 1 ≤ r ≤ 6
-        result = 2q+1
+        result = 2q + 1
     else
-        result = 2q+2
+        result = 2q + 2
     end
 
     println(result)
