@@ -7,7 +7,7 @@ function main()
     am = [parseint() for _ ∈ 1:m]
     # am .+= 1
 
-    dp = fill(0, n+1)
+    dp = fill(0, n + 1)
     dp[1] = 1
 
     if 2 ∉ am
@@ -15,11 +15,11 @@ function main()
     end
 
     for i ∈ 3:n+1
-        if i-1 ∉ am
+        if i - 1 ∉ am
             dp[i] += dp[i-1]
         end
 
-        if i-2 ∉ am
+        if i - 2 ∉ am
             dp[i] += dp[i-2]
         end
 
