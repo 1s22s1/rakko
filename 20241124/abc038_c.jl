@@ -8,7 +8,6 @@ function main()
     r = 1
 
     for l ∈ 1:n
-        if
 
         while r < n && an[r+1] ≥ an[r]
             r += 1
