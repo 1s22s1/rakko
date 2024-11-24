@@ -1,22 +1,20 @@
 using Printf
 
 function main()
-    n, k = parseints()
+    n = parseint()
     an = parseints()
 
-    s = [0]
-    for a ∈ an
-        push!(s, s[end] + a)
-    end
-
     result = 0
+    r = 1
 
-    for i ∈ 1:length(s)-1
-        for j ∈ i+1:length(s)
-            if s[j] - s[i] ≤ k
-                result += 1
-            end
+    for l ∈ 1:n
+        if
+
+        while r < n && an[r+1] ≥ an[r]
+            r += 1
         end
+
+        @show l, r
     end
 
     println(result)

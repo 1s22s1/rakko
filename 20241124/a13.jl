@@ -4,19 +4,25 @@ function main()
     n, k = parseints()
     an = parseints()
 
-    s = [0]
-    for a ∈ an
-        push!(s, s[end] + a)
+    result = 0
+    r = []
+
+    for i ∈ 1:n-1
+        if isempty(r)
+            j = 2
+        else
+            j = r[end]
+        end
+
+        while j ≤ n && an[j] - an[i] ≤ k
+            j += 1
+        end
+
+        push!(r, j - 1)
     end
 
-    result = 0
-
-    for i ∈ 1:length(s)-1
-        for j ∈ i+1:length(s)
-            if s[j] - s[i] ≤ k
-                result += 1
-            end
-        end
+    for i ∈ eachindex(r)
+        result += r[i] - i
     end
 
     println(result)
